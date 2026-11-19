@@ -1,0 +1,13 @@
+{
+  "accuracy": 0.4807692307692308,
+  "precision": 0.48514851485148514,
+  "recall": 0.9607843137254902,
+  "f1": 0.6447368421052632,
+  "roc_auc": 0.5866321371315821,
+  "purchase_threshold": 0.5,
+  "selection_score": 0.562753036437247,
+  "category_accuracy_positive_only": 0.1830065359477124,
+  "category_top3_accuracy": 0.37254901960784315,
+  "category_macro_f1": 0.01564245810055866,
+  "category_weighted_f1": 0.05725344141380947
+}
