@@ -4,6 +4,8 @@
 
 > 4 个模型（LSTM / GRU / MLP Fusion / Transformer）同口径对比，全部指标可复现，见 `results/model_comparison.csv`。
 
+**在线试跑：** [浏览器内实时推理](https://zhangyiwei-portfolio.app.workbuddy.host/demo/?sharecode=EMBLO7P56G) — 权重在浏览器里直接前向传播，无需后端；与 PyTorch 在 312 条测试样本上逐条比对，312/312 一致。
+
 ---
 
 ## 实测结果
@@ -25,9 +27,35 @@
 
 结论写在论文里：这套系统能跑通完整链路，但预测能力受限于公开数据集本身，进一步优化应该换数据源（引入行为序列、商品共现），而不是继续调模型。
 
-![模型对比](results/lstm_roc_curve.png)
+![四模型指标对比](results/metrics_comparison.png)
 
-![混淆矩阵](results/lstm_confusion_matrix.png)
+![四模型 ROC 对比](results/roc_all_models.png)
+
+<details>
+<summary>单模型细节（混淆矩阵 / 训练曲线 / 特征重要性）</summary>
+
+**混淆矩阵**
+
+| LSTM | GRU |
+|---|---|
+| ![LSTM 混淆矩阵](results/lstm_confusion_matrix.png) | ![GRU 混淆矩阵](results/gru_confusion_matrix.png) |
+| ![MLP Fusion 混淆矩阵](results/mlp_fusion_confusion_matrix.png) | ![Transformer 混淆矩阵](results/transformer_confusion_matrix.png) |
+
+**训练曲线**
+
+| LSTM | GRU |
+|---|---|
+| ![LSTM 训练曲线](results/lstm_training_history.png) | ![GRU 训练曲线](results/gru_training_history.png) |
+| ![MLP Fusion 训练曲线](results/mlp_fusion_training_history.png) | ![Transformer 训练曲线](results/transformer_training_history.png) |
+
+**特征重要性（permutation importance）**
+
+| LSTM | GRU |
+|---|---|
+| ![LSTM 特征重要性](results/lstm_permutation_importance.png) | ![GRU 特征重要性](results/gru_permutation_importance.png) |
+| ![MLP Fusion 特征重要性](results/mlp_fusion_permutation_importance.png) | ![Transformer 特征重要性](results/transformer_permutation_importance.png) |
+
+</details>
 
 ---
 
